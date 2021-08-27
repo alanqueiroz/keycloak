@@ -1,8 +1,7 @@
-# keycloak
-Autenticação e Autorização com o Keycloak, solução opensource da Red Hat
+# Keycloak
+Logon único, permitindo a autenticação e autorização de usuários, aplicativos e serviços, solução opensource da Red Hat.
 
-## O que ele me oferece? ##
-São oferecidas pelo Keycloak funcionalidades como:
+## Quais são as funcionalidades do Keycloak ?
 
 Criação de usuário (podendo ser criados pelo administrador do sistema, e habilitado ou não para o próprio usuário se cadastrar);
 Login, “esqueci minha senha”, login com plataformas externas como redes sociais;
@@ -13,5 +12,4 @@ Customização das páginas que o usuário acessa (como a própria tela de login
 Serviços para que outras aplicações busquem dados de usuários;
 Criação de permissões que seu sistema vai usar;
 Criação de grupos de usuário;
-i18n (internationalization);
-Entre outras várias configurações e customizações mais avançadas.
+Entre outras configurações e customizações mais avançadas que você pode definir.
