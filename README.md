@@ -17,7 +17,7 @@ Entre outras configurações e customizações mais avançadas que você pode de
 ### Instruções para subir o ambiente do keycloak em Docker ###
 
 1 - Clone o projeto<br> 
-2 - Acesse o diretório keycloak que foi clonado
+2 - Acesse o diretório keycloak que foi clonado<br>
 3 - Renomeie o arquivo .env-template para .env<br>
 3.1 - Edite os campos (usuário e senha) referentes a aplicação e banco no arquivo .env, definindo os valores de sua preferência e salve o arquivo.<br>
 4 - Execute o comando "make up" sem aspas para construir o ambiente do keycloak<br>
