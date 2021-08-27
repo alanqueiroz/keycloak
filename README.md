@@ -13,3 +13,10 @@ Serviços para que outras aplicações busquem dados de usuários;<br>
 Criação de permissões que seu sistema vai usar;<br>
 Criação de grupos de usuário;<br>
 Entre outras configurações e customizações mais avançadas que você pode definir.<br>
+
+### Instruções para subir o ambiente do keycloak em Docker ###
+
+1 - Clone o projeto<br> 
+2 - Renomeie o arquivo .env-template para .env<br>
+2.1 - Edite os campos (usuário e senha) referentes a aplicação e banco no arquivo .env, definindo os valores de sua preferência e salve o arquivo.<br>
+3 - Execute o comando "make up" sem aspas para construir o ambiente do keycloak<br>
