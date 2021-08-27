@@ -1,5 +1,5 @@
 # Keycloak
-Logon único, permitindo a autenticação e autorização de usuários, aplicativos e serviços, solução opensource da Red Hat.
+Logon único, permitindo a autenticação e autorização de usuários, aplicativos e serviços, trata-se de uma solução opensource da Red Hat.
 
 ## Quais são as funcionalidades do Keycloak ?
 
