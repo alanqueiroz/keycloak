@@ -46,15 +46,15 @@ DB_PASS_KEYCLOAK=SenhaDBkeycloak
 USER_KEYCLOAK=Admin
 PASS_USER_KEYCLOAK=SenhaKeycloak
 ```
-5 - Execute o comando `make up` para construir o ambiente completo (banco e aplicação) do keycloak<br>
+5 - Execute o comando abaixo, para construir o ambiente completo (banco e aplicação) do keycloak<br>
 ```shell
 make up
 ```
-Nota: Para destruir o ambiente completo (banco e aplicação) do keycloak, execute `make down`
+Nota: Para destruir o ambiente completo (banco e aplicação) do keycloak, execute o comando abaixo:
 ```shell
 make down
 ```
-6 - Deploy do container do banco de dados MySQL, renomeie o .env-template-mysql, definindo os valores de sua preferência e salve o arquivo.<br>
+6 - Deploy do container do banco (MySQL), renomeie o .env-template-mysql para .env , definindo os valores de sua preferência e salve o arquivo.<br>
 ```shell
 # BANCO - MYSQL
 DB_PASS_ROOT=SenhaRootMySQL
@@ -62,7 +62,22 @@ DB_NAME=keycloak
 DB_USER=usr_keycloak
 DB_PASS=SenhaDBkeycloak
 ```
-6.1 - Execute o comando abaixo para construir o container do banco MySQL
+6.1 - Execute o comando abaixo, para construir o container do banco MySQL
 ```shell
 docker-compose -f mysql.yml up -d
+```
+7 - Deploy do container da aplicação (Keycloak), renomei o .env-template-keycloak para .env, definindo os valores de sua preferência e salve o arquivo.
+```shell
+# APLICACAO - KEYCLOAK
+DB_PORT=3306
+DB_ADDR=ip_ou_dns_servidor_mysql
+DB_NAME_KEYCLOAK=keycloak
+DB_USER_KEYCLOAK=usr_keycloak
+DB_PASS_KEYCLOAK=SenhaDBkeycloak
+USER_KEYCLOAK=Admin
+PASS_USER_KEYCLOAK=SenhaKeycloak
+```
+7.1 - Execute o comando abaixo, para construir o container da aplicação Keycloak
+```shell
+docker-compose -f keycloak.yml up -d
 ```
