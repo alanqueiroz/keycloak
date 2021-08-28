@@ -16,7 +16,7 @@ Logon único, permitindo a autenticação, autorização de usuários, aplicativ
 * Criação de grupos de usuário;<br>
 Entre outras configurações e customizações mais avançadas que você pode definir!<br>
 
-## Instruções para subir o ambiente do keycloak em Docker
+## Instruções para subir o ambiente do keycloak (banco e aplicação) em Docker
 
 1 - Clone o projeto<br>
 ```shell
@@ -27,9 +27,9 @@ git clone https://github.com/alanqueiroz/keycloak.git
 cd keycloak
 ```
 3 - Se deseja construir todo o ambiente (aplicação e banco) em único servidor, recomendado para ambiente de homologação/testes ou com restrição de recursos, renomeie o arquivo .env-template para .env. e siga para o passo 4<br>
-```diff
-- Se deseja construir um ambiente, onde o container da aplicação fique em um host diferente do host do container do banco, siga para passo 6
-```
+
+- Nota: Se deseja construir um ambiente, onde o container da aplicação fique em um host diferente do host do container do banco, vá para o passo 6
+
 ```shell
 mv .env-template .env
 ```
