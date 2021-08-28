@@ -10,9 +10,8 @@ services:
         - /var/lib/docker/volumes/keycloak/data:/data
       environment:
         DB_VENDOR: MYSQL
-        DB_ADDR: mysql
+        DB_ADDR: ${DB_HOST}
         DB_PORT: ${DB_PORT}
-        DB_HOST: ${DB_HOST}
         DB_DATABASE: ${DB_NAME_KEYCLOAK}
         DB_USER: ${DB_USER_KEYCLOAK}
         DB_PASSWORD: ${DB_PASS_KEYCLOAK}
