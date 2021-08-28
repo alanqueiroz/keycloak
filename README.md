@@ -26,7 +26,8 @@ git clone https://github.com/alanqueiroz/keycloak.git
 ```shell
 cd keycloak
 ```
-3 - Se deseja construir todo o ambiente (aplicação e banco) em único servidor, recomendado para ambiente de homologação/testes ou com restrição de recursos renomeie o arquivo .env-template para .env. Se deseja construir um ambiente de produção, siga para passo 6<br>
+3 - Se deseja construir todo o ambiente (aplicação e banco) em único servidor, recomendado para ambiente de homologação/testes ou com restrição de recursos renomeie o arquivo .env-template para .env.
+Nota: Se deseja construir um ambiente, onde o container da aplicação fique em um host diferente do host do container do banco, siga para passo 6<br>
 ```shell
 mv .env-template .env
 ```
