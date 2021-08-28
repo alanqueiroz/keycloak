@@ -26,7 +26,7 @@ git clone https://github.com/alanqueiroz/keycloak.git
 ```shell
 cd keycloak
 ```
-3 - Renomeie o arquivo .env-template para .env<br>
+3 - Se deseja construir todo o ambiente (aplicação e banco) em único servidor, recomendado para ambiente de homologação/testes ou com restrição de recursos renomeie o arquivo .env-template para .env. Se deseja construir um ambiente de produção, siga para passo 6<br>
 ```shell
 mv .env-template .env
 ```
@@ -46,11 +46,23 @@ DB_PASS_KEYCLOAK=SenhaDBkeycloak
 USER_KEYCLOAK=Admin
 PASS_USER_KEYCLOAK=SenhaKeycloak
 ```
-5 - Execute o comando `make up` para construir o ambiente do keycloak<br>
+5 - Execute o comando `make up` para construir o ambiente completo (banco e aplicação) do keycloak<br>
 ```shell
 make up
 ```
-Nota: Para destruir os containers execute `make down`
+Nota: Para destruir o ambiente completo (banco e aplicação) do keycloak, execute `make down`
 ```shell
 make down
+```
+6 - Deploy do container do banco de dados MySQL, renomeie o .env-template-mysql, definindo os valores de sua preferência e salve o arquivo.<br>
+```shell
+# BANCO - MYSQL
+DB_PASS_ROOT=SenhaRootMySQL
+DB_NAME=keycloak
+DB_USER=usr_keycloak
+DB_PASS=SenhaDBkeycloak
+```
+6.1 - Execute o comando abaixo para construir o container do banco MySQL
+```shell
+docker-compose -f mysql.yml up -d
 ```
