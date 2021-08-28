@@ -16,7 +16,7 @@ Logon único, permitindo a autenticação, autorização de usuários, aplicativ
 * Criação de grupos de usuário;<br>
 Entre outras configurações e customizações mais avançadas que você pode definir!<br>
 
-## Instruções para subir o ambiente do keycloak (banco e aplicação) em Docker
+## Instruções para subir o ambiente do keycloak (banco e aplicação) - Ambiente de Desenvolvimento/Homologação
 
 1 - Clone o projeto<br>
 ```shell
@@ -57,6 +57,7 @@ Nota: Para destruir o ambiente completo (banco e aplicação) do keycloak, execu
 ```shell
 make down
 ```
+## Instruções para subir o banco (MySQL) - Ambiente de Produção
 6 - Deploy do container do banco (MySQL), renomeie o .env-template-mysql para .env , definindo os valores de sua preferência e salve o arquivo.<br>
 ```shell
 # BANCO - MYSQL
@@ -69,6 +70,7 @@ DB_PASS=SenhaDBkeycloak
 ```shell
 docker-compose -f mysql.yml up -d
 ```
+## Instruções para subir a aplicação (Keycloak) - Ambiente de Produção
 7 - Deploy do container da aplicação (Keycloak), renomei o .env-template-keycloak para .env, definindo os valores de sua preferência e salve o arquivo.
 ```shell
 # APLICACAO - KEYCLOAK
