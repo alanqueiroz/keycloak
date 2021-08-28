@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  keycloak:
+      image: quay.io/keycloak/keycloak:latest
+      container_name: keycloak
+      hostname: keycloak
+      restart: always
+      volumes:
+        - /var/lib/docker/volumes/keycloak/data:/data
+      environment:
+        DB_VENDOR: MYSQL
+        DB_ADDR: mysql
+        DB_PORT: ${DB_PORT}
+        DB_HOST: ${DB_HOST}
+        DB_DATABASE: ${DB_NAME_KEYCLOAK}
+        DB_USER: ${DB_USER_KEYCLOAK}
+        DB_PASSWORD: ${DB_PASS_KEYCLOAK}
+        KEYCLOAK_USER: ${USER_KEYCLOAK}
+        KEYCLOAK_PASSWORD: ${PASS_USER_KEYCLOAK}
+      ports:
+        - 8080:8080
+        - 8443:8443
