@@ -18,7 +18,7 @@ Entre outras configurações e customizações mais avançadas que você pode de
 
 ## Instruções para subir o ambiente do keycloak em Docker
 
-Clone o projeto<br>
+1 - Clone o projeto<br>
 ```shell
 git clone https://github.com/alanqueiroz/keycloak.git
 ```
