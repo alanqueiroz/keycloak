@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mysql:
+      image: mysql:5.7
+      container_name: mysql-keycloak
+      hostname: mysql-keycloak
+      restart: always
+      volumes:
+        - /var/lib/docker/volumes/mysql:/var/lib/mysql
+      ports:
+        - 3306:3306
+      environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASS_ROOT}
+        MYSQL_DATABASE: ${DB_NAME}
+        MYSQL_USER: ${DB_USER}
+        MYSQL_PASSWORD: ${DB_PASS}
