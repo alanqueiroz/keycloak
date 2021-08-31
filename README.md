@@ -1,7 +1,7 @@
 ![keycloak](https://www.keycloak.org/resources/images/keycloak_logo_480x108.png)
 
 # Keycloak
-Logon único, permitindo a autenticação e autorização de usuários, aplicativos e serviços, trata-se de uma solução opensource da Red Hat.
+Logon único, permitindo a autenticação, autorização de usuários, aplicativos e serviços, trata-se de uma solução opensource da Red Hat.
 
 ## Quais são as funcionalidades do Keycloak ?
 
@@ -16,7 +16,7 @@ Logon único, permitindo a autenticação e autorização de usuários, aplicati
 * Criação de grupos de usuário;<br>
 Entre outras configurações e customizações mais avançadas que você pode definir!<br>
 
-## Instruções para subir o ambiente do keycloak em Docker
+## Instruções para subir o ambiente do keycloak (banco e aplicação) - Ambiente de Desenvolvimento/Homologação
 
 1 - Clone o projeto<br>
 ```shell
@@ -26,7 +26,10 @@ git clone https://github.com/alanqueiroz/keycloak.git
 ```shell
 cd keycloak
 ```
-3 - Renomeie o arquivo .env-template para .env<br>
+3 - Se deseja construir todo o ambiente (aplicação e banco) em único servidor, recomendado para ambiente de homologação/testes ou com restrição de recursos, renomeie o arquivo .env-template para .env. e siga as próximas instruções<br>
+
+- Nota: Se deseja construir um ambiente, onde o container da aplicação fique em um host diferente do host do container do banco, vá para o passo 6
+
 ```shell
 mv .env-template .env
 ```
@@ -46,11 +49,40 @@ DB_PASS_KEYCLOAK=SenhaDBkeycloak
 USER_KEYCLOAK=Admin
 PASS_USER_KEYCLOAK=SenhaKeycloak
 ```
-5 - Execute o comando `make up` para construir o ambiente do keycloak<br>
+5 - Execute o comando abaixo, para construir o ambiente completo (banco e aplicação) do keycloak<br>
 ```shell
 make up
 ```
-Nota: Para destruir os containers execute `make down`
+Nota: Para destruir o ambiente completo (banco e aplicação) do keycloak, execute o comando abaixo:
 ```shell
 make down
+```
+## Instruções para subir o banco (MySQL) - Ambiente de Produção
+6 - Deploy do container do banco (MySQL), renomeie o .env-template-mysql para .env , definindo os valores de sua preferência e salve o arquivo.<br>
+```shell
+# BANCO - MYSQL
+DB_PASS_ROOT=SenhaRootMySQL
+DB_NAME=keycloak
+DB_USER=usr_keycloak
+DB_PASS=SenhaDBkeycloak
+```
+6.1 - Execute o comando abaixo, para construir o container do banco MySQL
+```shell
+docker-compose -f mysql.yml up -d
+```
+## Instruções para subir a aplicação (Keycloak) - Ambiente de Produção
+7 - Deploy do container da aplicação (Keycloak), renomei o .env-template-keycloak para .env, definindo os valores de sua preferência e salve o arquivo.
+```shell
+# APLICACAO - KEYCLOAK
+DB_PORT=3306
+DB_ADDR=ip_ou_dns_servidor_mysql
+DB_NAME_KEYCLOAK=keycloak
+DB_USER_KEYCLOAK=usr_keycloak
+DB_PASS_KEYCLOAK=SenhaDBkeycloak
+USER_KEYCLOAK=Admin
+PASS_USER_KEYCLOAK=SenhaKeycloak
+```
+7.1 - Execute o comando abaixo, para construir o container da aplicação Keycloak
+```shell
+docker-compose -f keycloak.yml up -d
 ```
