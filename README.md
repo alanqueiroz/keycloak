@@ -1,4 +1,4 @@
-![keycloak](https://www.keycloak.org/resources/images/keycloak_logo_480x108.png)
+[![keycloak](https://www.keycloak.org/resources/images/keycloak_logo_480x108.png)](https://github.com/alanqueiroz/keycloak/issues/4#issue-2421065265)
 
 # Keycloak
 Logon único, permitindo a autenticação, autorização de usuários, aplicativos e serviços, trata-se de uma solução opensource da Red Hat.
